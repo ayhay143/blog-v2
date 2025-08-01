@@ -1,12 +1,14 @@
-import Bestblog from "@/component/bestblog";
-import Cartblog from "@/component/cartblog";
-import Cartblogv2 from "@/component/cartblogv2";
-import Textcard from "@/component/textcard";
+import Bestblog from "@/components/bestblog";
+import Cartblog from "@/components/cartblog";
+import Cartblogv2 from "@/components/cartblogv2";
+import Textcard from "@/components/textcard";
 
 
 export default function Home() {
+  {/* This is the main page of the blog application. It displays a grid of blog posts, a section for people's favorites, and editor's picks. */}
   return (
-    <main className="flex flex-col items-center py-15 px-34">
+    <main className="flex flex-col items-center py-15 px-34 bg-white">
+      
       <div id="1erpartie" className="flex flex-row gap-4 w-full justify-between">
         <div id="bentoblog" className="grid grid-flow-col grid-rows-2 gap-4 w-4/5 ">
           <Cartblog className="col-span-2 " bgImageUrl="MainBefore.jpg" />

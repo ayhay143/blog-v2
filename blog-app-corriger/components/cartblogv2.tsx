@@ -5,7 +5,7 @@ import Image from "next/image";
 function cartblogv2({className,bgImageUrl}: {className?: string, bgImageUrl?: string}) {
   return (
    
-    <div className='rounded-lg shadow-md relative flex flex-col  '>
+    <div className='rounded-lg shadow-md relative flex flex-col  justify-between m-2'>
 
        <div className={`${className}  rounded shadow-md   p-4 bg-gray-200 text-black mb-2 relative `}
        style={
@@ -23,13 +23,13 @@ function cartblogv2({className,bgImageUrl}: {className?: string, bgImageUrl?: st
        <div className=' flex flex-col justify-around px-2 py-5 h-1/8'>  
            <div id='context'>
                
-               <span className='text-[1rem] text-white font-bold box-decoration-clone bg-black relative '>This is a cart blog component. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi tene eligendi ducimus quis.</span>
+               <span className='text-[1rem] font-bold   relative '>This is a cart blog component. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi tene eligendi ducimus quis.</span>
            </div>
-           <div id='info' className='flex items-center flex-start w-full mt-4 text-[0.8rem] text-gray-600'>
+       </div>
+           <div id='info' className='flex items-center  w-full mt-4 text-[0.8rem] text-gray-600 m-2'>
                <div id='icon'className='border rounded-xl mr-3'><Image src="reshot-icon-cat-face-PXUYA3H5DK.svg"  alt="Description de l'image" width={20} height={20}/></div>
                <div id='date-auteur'>yahya elyoufi , 11jun</div>
            </div>
-       </div>
     </div>
      
   )

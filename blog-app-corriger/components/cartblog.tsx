@@ -18,7 +18,7 @@ function Cartblog({className,bgImageUrl}: {className?: string, bgImageUrl?: stri
       }>
         <div id='context truncate'>
             <p className=' box-decoration-clone bg-blue-800 px-2 py-1 table rounded-xl'>CARS</p>
-            <span className='text-2xl text-white font-bold box-decoration-clone bg-black relative '>This is a cart blog component. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi tene eligendi ducimus quis.</span>
+            <span className='text-2xl text-white font-bold box-decoration-slice bg-linear-to-t from-black/50  via-black/40 to-black/10 px-2 m- relative '>This is a cart blog component. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi tene eligendi ducimus quis.</span>
         </div>
         <div id='info' className='flex items-center flex-start w-full mt-4'>
             <div id='icon'className='border rounded-xl mr-3'>

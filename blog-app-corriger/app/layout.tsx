@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider"
+import { LoginButton } from "@/components/login-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +26,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className="min-w-[1157px] bg-white text-black dark:bg-gray-900 dark:text-white"
       >
+                  <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+
         <header>
          <nav className="mx-auto maxe-w-screen-lg  ">
           <div className="flex justify-between items-center bg-black text-white text-xs py-3 px-34"> 
@@ -72,14 +81,16 @@ export default function RootLayout({
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <button className="bg-[#393dd8] text-white px-3 rounded transition duration-500 hover:bg-[#4348ff]">Login</button>
+              <LoginButton />              
               <button><Image src="110827_moon_icon.svg"  alt="Description de l'image" width={30} height={30}/></button>
               <button><Image src="icons8-search.svg"  alt="Description de l'image" width={20} height={20}/></button>
             </div>
           </div>
          </nav>
+         
         </header>
         {children}
+        </ThemeProvider>
       </body>
     </html>
   );

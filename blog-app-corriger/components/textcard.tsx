@@ -8,7 +8,7 @@ function Textcard() {
     <div className='flex items-center justify-between px-4 py-2 bg-gray-100 rounded-lg shadow-md m-2'>
         <div>
             <div>TECHNOLOGY</div>
-            <div className='text-[0.9rem] py-1 font-bold'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+            <div className='text-[0.9rem] py-1 font-bold line-clamp-3 max-w-90'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum illo dicta natus quasi voluptatem rerum? Cum soluta aliquam odit fuga labore tempore blanditiis eos, porro corporis veniam voluptates iure eaque!</div>
             <div className='flex items-center flex-start mt-2 text-sm text-gray-600 gap-8'>
                 <div>Shane Doe</div>
                 <div className='flex items-center gap-2'>
