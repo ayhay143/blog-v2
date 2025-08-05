@@ -11,7 +11,7 @@ function Cartblog({className,bgImageUrl}: {className?: string, bgImageUrl?: stri
               backgroundImage: `url(${bgImageUrl})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-                height: "40vh",
+                height: "45vh",
                
             }
           : undefined
