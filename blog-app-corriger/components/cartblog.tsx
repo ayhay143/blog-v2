@@ -1,30 +1,43 @@
 import React from 'react'
 import Image from "next/image";
 
-function Cartblog({className,bgImageUrl}: {className?: string, bgImageUrl?: string}) {
+
+
+function Cartblog({
+  className, 
+  title,
+  image,
+  updatedAt,
+  author,
+  category,
+}: CartblogProps & {className?: string }&{key: number}) {
   return (
     
-    <div className={`${className}  rounded-lg shadow-md flex flex-col items-center justify-end p-4 bg-gray-200 text-black`}
+    <div className={`${className}  rounded-lg shadow-md flex flex-col items-start justify-end p-4 bg-gray-200 text-black`}
     style={
-        bgImageUrl
+        image
           ? {
-              backgroundImage: `url(${bgImageUrl})`,
+              backgroundImage: `url(${image})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-                height: "45vh",
+              height: "45vh",
                
             }
           : undefined
       }>
-        <div id='context truncate'>
-            <p className=' box-decoration-clone bg-blue-800 px-2 py-1 table rounded-xl'>CARS</p>
-            <span className='text-2xl text-white font-bold box-decoration-slice bg-linear-to-t from-black/50  via-black/40 to-black/10 px-2 m- relative '>This is a cart blog component. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi tene eligendi ducimus quis.</span>
+        <div id='context truncate '>
+            <p className=' box-decoration-clone px-2 py-1 table rounded-xl my-2 text-white font-fold ' style={{ backgroundColor: category?.color }}>{category?.name}</p>
+            <span className='text-2xl text-white font-bold box-decoration-slice bg-linear-to-t from-black/50  via-black/40 to-black/10 px-2 relative ' >{title}</span>
         </div>
         <div id='info' className='flex items-center flex-start w-full mt-4'>
             <div id='icon'className='border rounded-xl mr-3'>
-              <Image src="icons8-search.svg"  alt="Description de l'image" width={20} height={20}/>
+              <Image src={author?.urlimage ?? "/default-profile.png"}  alt="Description de l'image" width={20} height={20}/>
               </div>
-            <div id='date-auteur'>yahya elyoufi , 11jun</div>
+            <div id='date-auteur'>{author?.name}, {updatedAt ? updatedAt.toLocaleString('fr-FR', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+}) : ''}</div>
         </div>
     </div>
   )

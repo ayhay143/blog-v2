@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
-import Cnav from "@/components/nav";
 import { CustomSessionProvider } from "@/components/session-provider";
 
 

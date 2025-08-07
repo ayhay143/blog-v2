@@ -7,9 +7,9 @@ function  Cnav({ session }: { session: any }) {
     const [openLogin, setOpenLogin] = useState(false)
     const router = useRouter();
     
-  const handleClick = () => {
+  const adminClick = () => {
     if (session) {
-        router.push('/admin') 
+        router.push('/editeur') 
          
         // redirige vers /dashboard
     }
@@ -19,6 +19,10 @@ function  Cnav({ session }: { session: any }) {
       
     }
   }
+  const homeClick =() => {
+    router.push('/')
+  }
+
   return (
     <nav className="mx-auto maxe-w-screen-lg  ">
           <div className="flex justify-between items-center bg-black text-white text-xs py-3 px-34"> 
@@ -54,13 +58,13 @@ function  Cnav({ session }: { session: any }) {
                 <h1>TECHBLOG</h1>
               </div>
               <div className="flex items-center gap-15">
-                <button>Home</button>
+                <button onClick={homeClick}>Home</button>
                 <button>Features</button>
                 <button>Technology</button>
                 <button>Gadgets</button>
                 <button>Phones</button>
                 <button>Buy Theme</button>
-                <button onClick={handleClick} >Admin</button>
+                <button onClick={adminClick} >Admin</button>
 
               </div>
             </div>

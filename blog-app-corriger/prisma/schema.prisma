@@ -39,6 +39,7 @@ model user {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  urlimage  String?
 
   blogs blog[]
 }
@@ -47,6 +48,5 @@ model Categiory {
   id    Int    @id @default(autoincrement())
   name  String @unique
   color String @unique
-
   blogs blog[]
 }
