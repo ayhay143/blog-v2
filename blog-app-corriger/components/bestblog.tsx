@@ -9,7 +9,7 @@ function bestblog({
   updatedAt,
   author,
   category,
-}: CartblogProps & {number?: number }&{key: number}) {
+}: any & {number?: number }&{key: number}) {
   return (
     <div className='flex flex-col items-start justify-between  rounded-lg shadow-md relative '>
         <div className='relative w-full  bg-gray-200 rounded-t-lg overflow-hidden'style={
@@ -24,7 +24,7 @@ function bestblog({
             }
             : undefined
         }>
-          <p className='absolut top-10 left-10 inline p-1 rounded' style={{ backgroundColor: category?.color }}>{category?.name}</p>
+          <p className='absolut text-white top-10 left-10 inline p-1 rounded' style={{ backgroundColor: category?.color }}>{category?.name}</p>
         
         </div>
 

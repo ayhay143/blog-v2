@@ -9,13 +9,13 @@ function Textcard({
 
   author,
   category,
-}: CartblogProps & {className?: string }&{key: number}) {
+}: any & {className?: string }&{key: number}) {
   return (
     <>
-    <div className='flex items-center justify-between px-4 py-2 bg-gray-100 rounded-lg shadow-md m-2'>
+    <div className='flex items-center justify-between px-4 py-2  m-2 min-w-[400px]'>
         <div>
-            <div>{category?.name}</div>
-            <div className='text-[0.9rem] py-1 font-bold line-clamp-3 max-w-90'>{title}</div>
+            <div className='font-bold' style={{color : category?.color }}>{category?.name}</div>
+            <div className='text-[0.9rem] py-1 font-bold line-clamp-3 max-w-90 py-4'>{title}</div>
             <div className='flex items-center flex-start mt-2 text-sm text-gray-600 gap-8'>
                 <div>{author?.name}</div>
                 <div className='flex items-center gap-2'>

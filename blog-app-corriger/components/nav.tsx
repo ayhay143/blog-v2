@@ -3,19 +3,25 @@ import React, { useState } from 'react'
 import { LoginButton } from "@/components/login-button";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
+import { Button } from './ui/button';
+import { signOut } from 'next-auth/react';
 function  Cnav({ session }: { session: any }) {
     const [openLogin, setOpenLogin] = useState(false)
     const router = useRouter();
-    
-  const adminClick = () => {
+  const logout = () => {
+    signOut({ callbackUrl: '/' });
+  }  
+  const adminClick = async () => {
     if (session) {
-        router.push('/editeur') 
-         
+      
+      router.push('/editeur/home') 
+      console.log("you are logged in");   
         // redirige vers /dashboard
     }
     else {
-      console.log("you are not logged in");
       setOpenLogin(true)
+      console.log("you are not logged in");
+      await adminClick()
       
     }
   }
@@ -34,19 +40,19 @@ function  Cnav({ session }: { session: any }) {
             </div>
             <div>
               <button className="bg-white text-black rounded-full align-middle">
-                <Image src="icons8-facebook-logo.svg"  alt="Description de l'image" width={20} height={20}/>
+                <Image src="/icons8-facebook-logo.svg"  alt="Description de l'image" width={20} height={20}/>
               </button>
               <button className="bg-white text-black rounded-full align-middle">
-                <Image src="icons8-instagram-logo.svg"  alt="Description de l'image" width={20} height={20}/>
+                <Image src="/icons8-instagram-logo.svg"  alt="Description de l'image" width={20} height={20}/>
               </button>
               <button className="bg-white text-black rounded-full align-middle">
-                <Image src="icons8-pinterest.svg"  alt="Description de l'image" width={20} height={20}/>
+                <Image src="/icons8-pinterest.svg"  alt="Description de l'image" width={20} height={20}/>
               </button >
               <button className="bg-white text-black rounded-full align-middle">
-                <Image src="icons8-twitter-bird.svg"  alt="Description de l'image" width={20} height={20}/>
+                <Image src="/icons8-twitter-bird.svg"  alt="Description de l'image" width={20} height={20}/>
               </button>
               <button className="bg-white text-black rounded-full align-middle">
-                <Image src="icons8-vine.svg"  alt="Description de l'image" width={20} height={20}/>
+                <Image src="/icons8-vine.svg"  alt="Description de l'image" width={20} height={20}/>
               </button>
             </div>
           </div>
@@ -54,7 +60,7 @@ function  Cnav({ session }: { session: any }) {
           <div className="flex justify-between items-center  shadow-xs py-4 px-34">
             <div className="flex justify-between items-center gap-4">
               <div className="flex items-center gap-2  mr-14">
-                <button><Image src="icons8-menu.svg"  alt="Description de l'image" width={20} height={20}/></button>
+                <button><Image src="/icons8-menu.svg"  alt="Description de l'image" width={20} height={20}/></button>
                 <h1>TECHBLOG</h1>
               </div>
               <div className="flex items-center gap-15">
@@ -64,14 +70,14 @@ function  Cnav({ session }: { session: any }) {
                 <button>Gadgets</button>
                 <button>Phones</button>
                 <button>Buy Theme</button>
-                <button onClick={adminClick} >Admin</button>
+                <button onClick={adminClick} >Editeur</button>
 
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <LoginButton openLogin={openLogin} setOpenLogin={setOpenLogin}/>              
-              <button><Image src="110827_moon_icon.svg"  alt="Description de l'image" width={30} height={30}/></button>
-              <button><Image src="icons8-search.svg"  alt="Description de l'image" width={20} height={20}/></button>
+              {session?<Button onClick={logout}  variant="outline">logout</Button>:<LoginButton openLogin={openLogin} setOpenLogin={setOpenLogin}/>}              
+              <button><Image src="/110827_moon_icon.svg"  alt="Description de l'image" width={30} height={30}/></button>
+              <button><Image src="/icons8-search.svg"  alt="Description de l'image" width={20} height={20}/></button>
             </div>
           </div>
          </nav>

@@ -10,18 +10,17 @@ function Cartblog({
   updatedAt,
   author,
   category,
-}: CartblogProps & {className?: string }&{key: number}) {
+}: any & {className?: string }) {
   return (
     
-    <div className={`${className}  rounded-lg shadow-md flex flex-col items-start justify-end p-4 bg-gray-200 text-black`}
+    <div className={`${className}  rounded-lg shadow-md flex flex-col items-start justify-end m-2 p-4 bg-gray-200 text-black`}
     style={
         image
           ? {
               backgroundImage: `url(${image})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              height: "45vh",
-               
+              height: "100%",
             }
           : undefined
       }>
@@ -31,7 +30,7 @@ function Cartblog({
         </div>
         <div id='info' className='flex items-center flex-start w-full mt-4'>
             <div id='icon'className='border rounded-xl mr-3'>
-              <Image src={author?.urlimage ?? "/default-profile.png"}  alt="Description de l'image" width={20} height={20}/>
+              <Image src={author?.urlimage ?? ""}  alt="Description de l'image" width={20} height={20}/>
               </div>
             <div id='date-auteur'>{author?.name}, {updatedAt ? updatedAt.toLocaleString('fr-FR', {
   day: '2-digit',
