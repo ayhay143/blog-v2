@@ -32,7 +32,7 @@ export default function RootLayout({
       <body
         className="min-w-[1157px] bg-white text-black dark:bg-gray-900 dark:text-white"
       >
-                  <ThemeProvider
+          <ThemeProvider
             attribute="class"
             defaultTheme="light"
             enableSystem
@@ -42,6 +42,7 @@ export default function RootLayout({
         <header>
          
          <CustomSessionProvider />
+         
         </header>
         {children}
         </ThemeProvider>

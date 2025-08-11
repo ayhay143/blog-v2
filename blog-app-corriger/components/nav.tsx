@@ -5,7 +5,8 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { Button } from './ui/button';
 import { signOut } from 'next-auth/react';
-function  Cnav({ session }: { session: any }) {
+import { DropdownMenuDemo } from './dropdownmenu';
+function  Cnav({session,cathegorie}: {session: any;cathegorie?: category[];}) {
     const [openLogin, setOpenLogin] = useState(false)
     const router = useRouter();
   const logout = () => {
@@ -65,11 +66,7 @@ function  Cnav({ session }: { session: any }) {
               </div>
               <div className="flex items-center gap-15">
                 <button onClick={homeClick}>Home</button>
-                <button>Features</button>
-                <button>Technology</button>
-                <button>Gadgets</button>
-                <button>Phones</button>
-                <button>Buy Theme</button>
+                <DropdownMenuDemo cathegorie={cathegorie}/>               
                 <button onClick={adminClick} >Editeur</button>
 
               </div>

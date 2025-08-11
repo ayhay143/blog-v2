@@ -2,15 +2,15 @@ import prisma from '@/app/lib/db'
 import React from 'react'
 import Bestblog from './bestblog'
 
-async function Gridcartslayout({ nombreblog ,email }: { nombreblog: number, email: string }) {
+async function Gridcartslayout({ nombreblog ,email }: { nombreblog: number, email?: string }) {
     const bestblog = await prisma.blog.findMany({
-    where:{
+    where: email ?{
         author:{
             email:email
         }
-    },
+    }: {},
     take: nombreblog,
-    orderBy: { likes: 'asc' },
+    orderBy: { likes: 'desc' },
     select : {
       title: true,
       image: true,
@@ -30,6 +30,7 @@ async function Gridcartslayout({ nombreblog ,email }: { nombreblog: number, emai
     }
     })
   return (
+
     <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4  w-full pt-15">
         {bestblog.map((blog,i) => (
           <Bestblog number={i+1} 

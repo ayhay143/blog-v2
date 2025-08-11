@@ -1,10 +1,8 @@
-import Bestblog from "@/components/bestblog";
 import Cartblog from "@/components/cartblog";
 import Cartblogv2 from "@/components/cartblogv2";
 import Textcard from "@/components/textcard";
 import prisma from "./lib/db";
 import Gridcartslayout from "@/components/gridcartslayout";
-import { Session } from "inspector/promises";
 import { auth } from "./lib/auth";
 
 
@@ -12,10 +10,10 @@ export default async function Home() {
   const session = await auth();
   const email = session?.user?.email || "";
 
-  const [cartblog, cartblogv2, textcard, bestblog] = await prisma.$transaction([
+  const [cartblog, cartblogv2, textcard] = await prisma.$transaction([
   prisma.blog.findMany({
     take: 1,
-    orderBy: { createdAt: 'asc' },
+    orderBy: { createdAt: 'desc' },
     select : {
       title: true,
       image: true,
@@ -37,7 +35,7 @@ export default async function Home() {
   prisma.blog.findMany({
     take: 2,
     skip: 1,
-    orderBy: { createdAt: 'asc' },
+    orderBy: { createdAt: 'desc' },
     select : {
       title: true,
       image: true,
@@ -59,7 +57,7 @@ export default async function Home() {
   prisma.blog.findMany({
     take: 5,
     skip: 3,
-    orderBy: { createdAt: 'asc' },
+    orderBy: { createdAt: 'desc' },
     select : {
       title: true,
       updatedAt: true,
@@ -77,28 +75,7 @@ export default async function Home() {
         },
       },
     }}),
-  prisma.blog.findMany({
-    take: 4,
-    orderBy: { likes: 'asc' },
-    select : {
-      title: true,
-      image: true,
-      updatedAt: true,
-      id: true,
-      author: {
-        select: {
-          name: true,
-          urlimage: true,
-        },},
-      category: {
-        select: {
-          name: true,
-          color: true,
-        },
-      },
-    }
-
-  }),
+  
   ]);
   return (
     <main className="flex flex-col items-center py-15 px-34 bg-white">
@@ -150,7 +127,7 @@ export default async function Home() {
       
       
       
-       <Gridcartslayout nombreblog={4} email={email} />
+       <Gridcartslayout nombreblog={4} />
           
       
       
