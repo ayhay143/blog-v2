@@ -4,7 +4,7 @@ import prisma from "../lib/db";
 
 
 
-export async function adduser(formData: FormData) {
+async function adduser(formData: FormData) {
     
 
  try {
@@ -13,6 +13,7 @@ export async function adduser(formData: FormData) {
         name: formData.get("name") as string,
         email: formData.get("lastname") as string,
         password: formData.get("password") as string,
+        role: "user", // or set this to the appropriate role value
       },
     });
 
@@ -23,3 +24,39 @@ export async function adduser(formData: FormData) {
   }
 }
 
+async function addblog(formData:FormData) {
+  try{
+
+    const email = formData.get("user") as string;
+
+// Cherche l'utilisateur correspondant
+const user = await prisma.user.findUnique({
+  where: { email: email },
+  select: { id: true },
+});
+
+
+if (!user) {
+  throw new Error("Utilisateur non trouvé");
+}
+ const cathid = Number(formData.get("category")) 
+
+    const blog = await prisma.blog.create({
+      data:{
+          title :formData.get("title") as string,
+          slug  :formData.get("slug") as string,
+          image :formData.get("image") as   string,
+          description :formData.get("description") as string,
+          content :formData.get("content") as string,
+          authorId :user.id,
+          categoryId :cathid,
+
+      }
+    })
+  } catch(error){
+    console.error("we couldn't add the blog", error);
+
+  }
+
+}
+export { adduser, addblog };

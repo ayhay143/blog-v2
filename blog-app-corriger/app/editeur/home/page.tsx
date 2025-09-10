@@ -14,7 +14,7 @@ async function page() {
     },
   });
   return (
-    <div className='mt-4 mx-2 w-full'>
+    <div className='mt-4 mx-2 pr-9 w-full'>
       <Gridcartslayout nombreblog={nombreblog} email={email} />
     </div>
   )

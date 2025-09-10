@@ -31,7 +31,7 @@ async function Gridcartslayout({ nombreblog ,email }: { nombreblog: number, emai
     })
   return (
 
-    <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4  w-full pt-15">
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4  w-full pt-15">
         {bestblog.map((blog,i) => (
           <Bestblog number={i+1} 
           key={blog.id} 

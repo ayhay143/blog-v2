@@ -19,8 +19,8 @@ const items = [
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "/editeur/Inbox",
+    title: "new blog",
+    url: "/editeur/new-blog",
     icon: Inbox,
   },
   {

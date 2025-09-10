@@ -1,11 +1,17 @@
 import Bestblog from '@/components/bestblog'
 import prisma from '../lib/db'
 
-async function page({params}: { params: { id: string } }) {
-   
+
+
+interface PageProps {
+  params: Promise<{ id: string }>; // 👈 depuis Next.js 13.4, params peut être une Promise
+}
+
+async function page({ params }: PageProps) {
+      const { id } = await params;
       const blogs = await prisma.blog.findMany({
         where: {
-          categoryId: Number(params.id)
+          categoryId: Number(id)
         },
         include: {
           category: true

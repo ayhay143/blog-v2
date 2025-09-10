@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { CustomSessionProvider } from "@/components/session-provider";
+import { SessionProvider } from "next-auth/react";
 
 
 const geistSans = Geist({
@@ -32,6 +33,8 @@ export default function RootLayout({
       <body
         className="min-w-[1157px] bg-white text-black dark:bg-gray-900 dark:text-white"
       >
+        <SessionProvider>
+
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
@@ -46,6 +49,7 @@ export default function RootLayout({
         </header>
         {children}
         </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );
